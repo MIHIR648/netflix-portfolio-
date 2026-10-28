@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CROWN — Brand Identity & Performance Advertising Studio (Netflix Edition)</title>
+  <meta name="description" content="Crown Creation is an independent brand identity, performance advertising, and digital design studio. Explore client case studies in a cinematic Netflix-style interface." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. "WHO'S WATCHING?" - PERSONA PROFILE GATEWAY
+       ========================================================================= -->
+  <div id="profile-gate">
+    <div class="profile-gate-container">
+      <h1 class="profile-gate-title">Who's watching?</h1>
+      <div class="profiles-grid" id="profiles-grid">
+        <!-- Rendered dynamically via app.js: Crown Creation, custom profiles, and + Add Profile -->
+      </div>
+      <button class="manage-profiles-btn" id="manage-profiles-btn">Explore As Guest</button>
+    </div>
+  </div>
+
+  <!-- Add Profile Dialog Modal -->
+  <div class="add-profile-overlay" id="add-profile-modal">
+    <div class="add-profile-modal-box">
+      <h2 class="add-profile-header-title">Add Profile</h2>
+      <p class="add-profile-header-subtitle">Create a personalized viewing profile to explore Crown Creation.</p>
+      <div class="add-profile-form-row">
+        <div class="add-profile-avatar-select">
+          <img id="new-profile-avatar-preview" src="assets/diva-healthcare-coolsculpting.jpg" alt="Avatar" />
+        </div>
+        <input type="text" class="add-profile-name-input" id="new-profile-name-input" placeholder="Name (e.g. Recruiter, Client, Alex)" maxlength="24" autocomplete="off" />
+      </div>
+      <div class="add-profile-actions">
+        <button class="btn btn-red" id="save-new-profile-btn" style="padding: 0.65rem 1.6rem;">Continue</button>
+        <button class="btn btn-secondary" id="cancel-new-profile-btn" style="padding: 0.65rem 1.6rem;">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. NETFLIX STICKY TOP NAVIGATION BAR
+       ========================================================================= -->
+  <header class="netflix-header">
+    <div class="header-left">
+      <a href="#" class="brand-logo" id="brand-logo-text">
+        <span style="letter-spacing:2px; font-weight:900;">CROWN</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#section-featured-client-work" class="nav-link">Client Work</a></li>
+        <li><a href="#section-healthcare-beauty-ads" class="nav-link">Diva Healthcare</a></li>
+        <li><a href="#section-media-entertainment-talkshow" class="nav-link">The Darshan Shah Show</a></li>
+        <li><a href="#section-brand-identity-logos" class="nav-link">Logos & Systems</a></li>
+        <li><a href="#about" class="nav-link">Behind Studio</a></li>
+        <li>
+          <a href="#section-row-my-list" class="nav-link" id="nav-my-list-link">
+            My List <span class="nav-badge-count" id="nav-my-list-count" style="display:none;">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="header-right">
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <button class="search-toggle-btn" id="search-toggle-btn" title="Search Projects">🔍</button>
+        <input type="text" class="search-input" id="search-input" placeholder="Search Diva, Darshan Shah, Gabardine, CloneX..." />
+      </div>
+
+      <!-- Sound Toggle (Netflix Chime FX) -->
+      <button class="sound-toggle-btn" id="sound-toggle-btn" title="Toggle Cinematic Audio">🔊</button>
+
+      <!-- WhatsApp Quick Action -->
+      <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.8rem; background: #25D366; color: #fff; border-radius: 4px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
+        <span>💬</span>
+        <span style="font-weight:700;">WhatsApp</span>
+      </a>
+
+      <!-- Profile Avatar & Dropdown -->
+      <div class="profile-menu" id="profile-menu">
+        <img src="assets/clonex-logo-brand.jpg" alt="Profile" class="header-avatar" id="header-avatar" />
+        <span class="profile-arrow">▼</span>
+
+        <!-- Dropdown Menu -->
+        <div class="profile-dropdown" id="profile-dropdown">
+          <div class="dropdown-user-info">
+            <div class="dropdown-user-name" id="dropdown-current-name">Crown Creation</div>
+            <div class="dropdown-user-role">Brand Identity & Performance Studio</div>
+          </div>
+          <div class="dropdown-item" onclick="switchProfile()">
+            <span>👥</span> Switch Profile / Persona
+          </div>
+          <a href="#about" class="dropdown-item">
+            <span>📄</span> Studio Capabilities & Story
+          </a>
+          <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener noreferrer" class="dropdown-item" style="color:#25D366;">
+            <span>💬</span> Direct WhatsApp Chat
+          </a>
+          <a href="https://www.instagram.com/crownc.reations?stkn=MTRxdW9jdHY3Z2U3cg==" target="_blank" rel="noopener noreferrer" class="dropdown-item" style="color:#FF007F;">
+            <span>📷</span> Instagram: @crownc.reations
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="mailto:crowncreations30@gmail.com" class="dropdown-item" style="color:var(--netflix-red);">
+            <span>⚡</span> Accepting Q2 & Q3 Commissions
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. HERO BILLBOARD / FEATURED SPOTLIGHT
+       ========================================================================= -->
+  <main>
+    <section class="billboard-container" id="billboard">
+      <!-- Rendered dynamically via app.js -->
+    </section>
+
+    <!-- =========================================================================
+         4. NETFLIX ROWS / HORIZONTAL CAROUSELS
+         ========================================================================= -->
+    <div class="netflix-rows-container" id="netflix-rows">
+      <!-- Rendered dynamically via app.js -->
+    </div>
+
+    <!-- =========================================================================
+         5. DOCUMENTARY / "ABOUT THE STUDIO" SECTION
+         ========================================================================= -->
+    <section class="about-documentary-section" id="about">
+      <div class="about-grid">
+        <div class="about-photo-wrapper">
+          <img id="about-photo" src="assets/darshan-shah-studio-guest.jpg" alt="Crown Creation Studio" />
+          <div class="about-badge-overlay">
+            🎬 Engineering Category Leaders Across India & Globally
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="about-section-tag">An Original Studio Story</div>
+          <h2 class="about-title" id="about-name">Crown Creation</h2>
+          <p class="about-bio" id="about-bio">
+            Crown Creation is an independent brand identity, performance advertising, and digital design studio. We partner with ambitious clinics, high-profile media shows, and forward-thinking consumer brands to engineer design systems that drive measurable commercial growth.
+          </p>
+
+          <!-- Career Numbers -->
+          <div class="stats-counter-grid" id="stats-grid">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top: 1.5rem;">
+            <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="background:#25D366;">
+              <span>💬</span>
+              <span>Start on WhatsApp</span>
+            </a>
+            <a href="mailto:crowncreations30@gmail.com?subject=Design Commission Inquiry" class="btn btn-secondary">
+              <span>✉️</span>
+              <span>Email: crowncreations30@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills & Design Capabilities Matrix -->
+      <div style="max-width: 1200px; margin: 3.5rem auto 0;">
+        <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem;">⚡ Studio Disciplines & Capabilities</h3>
+        <p style="color: #888; font-size: 0.95rem;">From precision vector logo marks to high-converting performance social campaigns and production assets.</p>
+        <div class="skills-grid" id="skills-matrix">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. TESTIMONIALS / "CRITICALLY ACCLAIMED BY CLIENTS"
+         ========================================================================= -->
+    <section class="row-section" id="testimonials" style="padding: 3rem 0; background: #111;">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <h2 class="row-title">⭐ Critically Acclaimed by Clients</h2>
+          <div class="row-subtitle">What healthcare founders, broadcast producers, and retail leaders say about Crown Creation</div>
+        </div>
+      </div>
+      <div class="carousel-wrapper">
+        <div class="carousel-slider" id="testimonials-slider" style="gap: 1.2rem; padding: 1rem 0;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. FREQUENTLY ASKED QUESTIONS (Netflix Style Accordion)
+         ========================================================================= -->
+    <section class="faq-section" id="faq">
+      <div class="faq-container">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div id="faq-list">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. CONTACT & HIRE ME (Netflix Membership Style)
+         ========================================================================= -->
+    <section class="contact-section" id="contact">
+      <div class="contact-box">
+        <h2 class="contact-title">Ready to turn your brand into a category leader?</h2>
+        <p class="contact-subtitle">Enter your email or message us directly on WhatsApp to kick off your next design campaign.</p>
+        
+        <form class="contact-form-inline" id="quick-contact-form">
+          <input type="email" class="contact-input" id="quick-contact-email" placeholder="Your business email address" required />
+          <button type="submit" class="btn btn-red" style="padding: 0.9rem 2rem;">
+            <span>Get Started ›</span>
+          </button>
+        </form>
+
+        <div class="contact-direct-links">
+          <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener noreferrer" class="direct-link-item" style="color:#25D366; font-weight:700;">
+            <span>💬</span> Direct WhatsApp Chat
+          </a>
+          <span style="color:#444;">•</span>
+          <a href="mailto:crowncreations30@gmail.com" class="direct-link-item">
+            <span>✉️</span> crowncreations30@gmail.com
+          </a>
+          <span style="color:#444;">•</span>
+          <a href="https://www.instagram.com/crownc.reations?stkn=MTRxdW9jdHY3Z2U3cg==" target="_blank" rel="noopener noreferrer" class="direct-link-item" style="color:#FF007F;">
+            <span>📷</span> Instagram @crownc.reations
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       9. NETFLIX FOOTER
+       ========================================================================= -->
+  <footer class="netflix-footer">
+    <div class="footer-top">
+      Questions? Contact Crown Creation Studio via <a href="mailto:crowncreations30@gmail.com" style="color:var(--netflix-gray); text-decoration:underline;">crowncreations30@gmail.com</a> or <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener" style="color:#25D366; text-decoration:underline;">WhatsApp</a>
+    </div>
+
+    <div class="footer-links-grid">
+      <a href="#section-featured-client-work" class="footer-link">Featured Campaigns</a>
+      <a href="#section-healthcare-beauty-ads" class="footer-link">Diva Healthcare</a>
+      <a href="#section-media-entertainment-talkshow" class="footer-link">The Darshan Shah Show</a>
+      <a href="#section-brand-identity-logos" class="footer-link">Logo Systems & RERA</a>
+      <a href="#about" class="footer-link">Studio Capabilities</a>
+      <a href="#testimonials" class="footer-link">Client Reviews</a>
+      <a href="#faq" class="footer-link">FAQ & Deliverables</a>
+      <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener" class="footer-link" style="color:#25D366;">WhatsApp Direct ↗</a>
+    </div>
+
+    <button class="service-code-btn" onclick="alert('Crown Creation Studio | Netflix Interface Edition');">
+      Service Code: CROWN-CREATION-2024
+    </button>
+
+    <div style="color: #666; font-size: 0.78rem;">
+      © 2024–2025 Crown Creation Studio. All rights reserved. Designed with inspiration from Netflix UI/UX. Client trademarks and campaign materials belong to their respective copyright holders.
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       10. NETFLIX DETAILED "MORE INFO" MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="detail-modal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">✕</button>
+      
+      <div class="modal-hero">
+        <img src="" alt="" class="modal-hero-img" id="modal-hero-img" />
+        <div class="modal-hero-overlay"></div>
+        <div class="modal-hero-content">
+          <h2 class="modal-title" id="modal-title"></h2>
+          <div class="modal-client" id="modal-client"></div>
+          <div class="modal-hero-actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modal-live-btn" style="background:#25D366; color:#fff;">
+              <span>💬</span>
+              <span>Chat on WhatsApp</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="modal-figma-btn">
+              <span>📷</span>
+              <span>Instagram</span>
+            </a>
+            <button class="icon-btn" id="modal-list-btn" title="Add to My List">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-grid">
+          <!-- Left Column -->
+          <div class="modal-left-col">
+            <div class="card-meta-line" style="font-size:0.95rem;">
+              <span class="card-match" id="modal-match">99% Match</span>
+              <span class="meta-pill" id="modal-year">2024</span>
+              <span class="meta-pill" id="modal-duration">Creative Suite</span>
+              <span class="meta-pill" style="border-color:var(--netflix-red); color:var(--netflix-red);">Full Campaign</span>
+            </div>
+
+            <p class="modal-synopsis" id="modal-synopsis"></p>
+
+            <!-- Metrics Highlight Cards -->
+            <div class="metrics-row" id="modal-metrics">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Key Deliverables List -->
+            <div>
+              <div class="modal-section-title">Key Deliverables & Responsibilities</div>
+              <ul class="deliverables-list" id="modal-deliverables">
+                <!-- Rendered dynamically -->
+              </ul>
+            </div>
+
+            <!-- Client Testimonial Box inside Modal -->
+            <div class="modal-review-card" id="modal-review-card">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Right Column (Meta & Tools) -->
+          <div class="modal-right-col">
+            <div class="meta-group">
+              <span class="meta-label">Client & Studio Partner</span>
+              <span class="meta-value" id="modal-client-meta">Crown Creation Client Roster</span>
+            </div>
+
+            <div class="meta-group">
+              <span class="meta-label">Studio Role</span>
+              <span class="meta-value">Creative Direction, Brand Identity & Performance Ads</span>
+            </div>
+
+            <div class="meta-group">
+              <span class="meta-label">Campaign Disciplines & Tools</span>
+              <div class="meta-tags-list" id="modal-tags">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <div class="meta-group" style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.1);">
+              <span class="meta-label">Inquire About Similar Work</span>
+              <a href="https://wa.me/qr/KGEWR3H7AEQJM1" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="font-size:0.85rem; padding:0.6rem 1rem; margin-top:6px; background:#25D366;">
+                <span>Discuss a Project on WhatsApp ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="portfolio-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
