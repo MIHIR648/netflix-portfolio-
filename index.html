@@ -5,10 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CROWN — Brand Identity & Performance Advertising Studio (Netflix Edition)</title>
   <meta name="description" content="Crown Creation is an independent brand identity, performance advertising, and digital design studio. Explore client case studies in a cinematic Netflix-style interface." />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="./assets/favicon.png" />
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Universal Image Auto-Healer for Live Server, Localhost, Vercel & GitHub Pages -->
+  <script>
+    (function() {
+      // Determine base directory relative to the current HTML file
+      function getCurrentDir() {
+        let p = window.location.pathname;
+        if (!p.endsWith('/')) {
+          p = p.substring(0, p.lastIndexOf('/') + 1);
+        }
+        return p || './';
+      }
+
+      window.handleImgError = function(img) {
+        if (!img) return;
+        const currentSrc = img.getAttribute('src') || img.src || '';
+        if (!currentSrc || currentSrc.startsWith('data:')) return;
+        
+        const filename = currentSrc.split('/').pop().split('?')[0].split('#')[0];
+        if (!filename) return;
+
+        const step = parseInt(img.dataset.fallbackStep || '0', 10);
+        const currentDir = getCurrentDir();
+
+        const candidatePaths = [
+          './assets/' + filename,
+          'assets/' + filename,
+          './' + filename,
+          filename,
+          currentDir + 'assets/' + filename,
+          currentDir + filename,
+          '/assets/' + filename,
+          '/netflix-portfolio/assets/' + filename,
+          '/netflix-portfolio/' + filename,
+          '../assets/' + filename
+        ];
+
+        // Filter out paths that match the exact failure
+        const filtered = candidatePaths.filter(function(cand) {
+          return cand !== currentSrc && cand !== img.src;
+        });
+
+        if (step < filtered.length) {
+          img.dataset.fallbackStep = String(step + 1);
+          img.src = filtered[step];
+        }
+      };
+
+      // Intercept any <img> 404 in capture phase across the document
+      window.addEventListener('error', function(e) {
+        if (e.target && e.target.tagName === 'IMG') {
+          window.handleImgError(e.target);
+        }
+      }, true);
+    })();
+  </script>
 </head>
 <body>
 
@@ -32,7 +88,7 @@
       <p class="add-profile-header-subtitle">Create a personalized viewing profile to explore Crown Creation.</p>
       <div class="add-profile-form-row">
         <div class="add-profile-avatar-select">
-          <img id="new-profile-avatar-preview" src="assets/diva-healthcare-coolsculpting.jpg" alt="Avatar" />
+          <img id="new-profile-avatar-preview" src="./assets/diva-healthcare-coolsculpting.jpg" alt="Avatar" />
         </div>
         <input type="text" class="add-profile-name-input" id="new-profile-name-input" placeholder="Name (e.g. Recruiter, Client, Alex)" maxlength="24" autocomplete="off" />
       </div>
@@ -84,7 +140,7 @@
 
       <!-- Profile Avatar & Dropdown -->
       <div class="profile-menu" id="profile-menu">
-        <img src="assets/clonex-logo-brand.jpg" alt="Profile" class="header-avatar" id="header-avatar" />
+        <img src="./assets/clonex-logo-brand.jpg" alt="Profile" class="header-avatar" id="header-avatar" />
         <span class="profile-arrow">▼</span>
 
         <!-- Dropdown Menu -->
@@ -135,7 +191,7 @@
     <section class="about-documentary-section" id="about">
       <div class="about-grid">
         <div class="about-photo-wrapper">
-          <img id="about-photo" src="assets/darshan-shah-studio-guest.jpg" alt="Crown Creation Studio" />
+          <img id="about-photo" src="./assets/darshan-shah-studio-guest.jpg" alt="Crown Creation Studio" />
           <div class="about-badge-overlay">
             🎬 Engineering Category Leaders Across India & Globally
           </div>

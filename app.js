@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Available avatar choices for newly added profiles
   const avatarPool = [
-    "assets/diva-healthcare-coolsculpting.jpg",
-    "assets/darshan-shah-studio-guest.jpg",
-    "assets/gabardine-stretch-ad.jpg",
-    "assets/greentech-rera-ad.jpg",
-    "assets/clonex-logo-brand.jpg"
+    "./assets/diva-healthcare-coolsculpting.jpg",
+    "./assets/darshan-shah-studio-guest.jpg",
+    "./assets/gabardine-stretch-ad.jpg",
+    "./assets/greentech-rera-ad.jpg",
+    "./assets/clonex-logo-brand.jpg"
   ];
   let currentAvatarIndex = 0;
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const guestProfile = data.guestProfile || {
           id: "guest",
           name: "Guest Explorer",
-          avatar: "assets/darshan-shah-studio-guest.jpg",
+          avatar: "./assets/darshan-shah-studio-guest.jpg",
           welcomeMessage: "Welcome, Guest! Feel free to explore Crown Creation's client campaigns."
         };
         selectProfile(guestProfile);
